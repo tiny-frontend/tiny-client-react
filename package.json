@@ -1,0 +1,49 @@
+{
+  "name": "@tiny-frontend/tiny-client-react",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "preview": "vite preview",
+    "test": "jest ."
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/tiny-client-react.umd.js",
+  "module": "./dist/tiny-client-react.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tiny-client-react.es.js",
+      "require": "./dist/tiny-client-react.umd.js"
+    }
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  },
+  "devDependencies": {
+    "@cazoo/eslint-plugin-eslint": "^1.0.2",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.3",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.4.1",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0",
+    "eslint": "^7.32.0",
+    "jest": "^27.5.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.5.5",
+    "vite": "^2.7.13"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  }
+}
