@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react-hooks";
+import React from "react";
 
 import { useBundle } from "../useBundle";
-
 describe("[useBundle]", () => {
   describe("when useBundle runs", () => {
     describe("and the loader call is resolved", () => {
