@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import React, { ComponentType } from "react";
 
 import { BundleLoader } from "./types";
 import { useBundle } from "./useBundle";
@@ -19,7 +19,7 @@ export const withHydrationSuppress = function <T>(
   // eslint-disable-next-line react/display-name
   return ({ ...props }: T) => {
     const Component = useBundle<ComponentType<T>>({
-      loader,
+      loader
     });
 
     return Component ? (

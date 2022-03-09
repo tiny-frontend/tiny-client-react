@@ -9,7 +9,13 @@ export default defineConfig({
       fileName: (format) => `tiny-client-react.${format}.js`,
     },
     rollupOptions: {
-      external: ["react"],
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
   },
 });
