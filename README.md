@@ -1,5 +1,5 @@
 # tiny frontend client react
 
-Library used to consume [tiny frontend](https://tiny-frontend.github.io/) modules at runtime.
+React specific utils for [tiny-client](https://github.com/tiny-frontend/tiny-client).
 
 To learn more about how it works, [check out the docs](https://tiny-frontend.github.io/).
