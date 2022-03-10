@@ -24,7 +24,10 @@
     "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.(ts|tsx)$": "ts-jest"
-    }
+    },
+    "setupFilesAfterEnv": [
+      "./jest.setup.ts"
+    ]
   },
   "devDependencies": {
     "@cazoo/eslint-plugin-eslint": "^1.0.2",

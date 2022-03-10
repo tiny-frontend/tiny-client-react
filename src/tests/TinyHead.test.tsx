@@ -1,5 +1,3 @@
-import "@testing-library/jest-dom/extend-expect";
-
 import { render } from "@testing-library/react";
 import { TinyFrontendSsrConfig } from "@tiny-frontend/client";
 import React from "react";
@@ -18,28 +16,6 @@ const renderTinyHead = (config?: Partial<TinyFrontendSsrConfig>) => {
 };
 
 describe("[TinyHead]", () => {
-  it("should render", () => {
-    const expected = `
-    <div>
-      <link
-        href="http://some-css-url.xyz/"
-        rel="stylesheet"
-      />
-      <link
-        as="fetch"
-        crossorigin="anonymous"
-        href="http://some-js-url.xyz/"
-        rel="preload"
-      />
-      <script>
-        window["tinyFrontendFrontendConfig"] = {"umdBundle":"some-umd.js","cssBundle":"some-css.css"}
-      </script>
-    </div>
-  `;
-    const { container } = renderTinyHead();
-
-    expect(container).toMatchInlineSnapshot(expected);
-  });
   describe("cssBundle", () => {
     it("should render a link with the provided cssBundle", () => {
       const expected = "http://other-css-url.css/";
