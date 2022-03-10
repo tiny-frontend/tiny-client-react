@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { TinyFrontendSsrConfig } from "@tiny-frontend/client";
 import React from "react";
 
-import { TinyHead } from "../TinyHead";
+import { TinyHead } from "./TinyHead";
 
 const renderTinyHead = (config?: Partial<TinyFrontendSsrConfig>) => {
   const mergedConfig = {
