@@ -1,9 +1,7 @@
-import "@testing-library/jest-dom/extend-expect";
-
 import { render, screen } from "@testing-library/react";
 import React from "react";
 
-import { withHydrationSuppress } from "../withHydrationSuppress";
+import { withHydrationSuppress } from "./withHydrationSuppress";
 
 const renderWithHydrationSuppress = (loader) => {
   const Component = withHydrationSuppress(loader);
