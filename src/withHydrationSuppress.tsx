@@ -1,6 +1,6 @@
 import React, { ComponentType } from "react";
 
-import { BundleLoader } from "./types";
+import { BackoffOptions, BundleLoader } from "./types";
 import { useBundle } from "./useBundle";
 
 // The withHydrationSuppress HOC will prevent React from hydrating any SSR HTML until a client side
@@ -13,13 +13,18 @@ import { useBundle } from "./useBundle";
 // many other capabilities that we don't require and also a big package dependency, we ported just the
 // needed code.
 
-export const withHydrationSuppress = function <T>(
-  loader: BundleLoader<ComponentType<T>>
-) {
+export const withHydrationSuppress = function <T>({
+  loader,
+  options
+}: {
+  loader: BundleLoader<ComponentType<T>>;
+  options?: BackoffOptions;
+}) {
   // eslint-disable-next-line react/display-name
   return ({ ...props }: T) => {
     const Component = useBundle<ComponentType<T>>({
-      loader
+      loader,
+      options
     });
 
     return Component ? (

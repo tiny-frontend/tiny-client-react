@@ -25,6 +25,32 @@ describe("[useBundle]", () => {
         const { result } = renderHook(() => useBundle({ loader }));
         expect(result.current).toBe(undefined);
       });
+      describe("and there are options configured", () => {
+        it("should exaust retries", async () => {
+          const retryAttempts = 3;
+          const loader = jest.fn(() => Promise.reject("error"));
+
+          try {
+            await renderHook(() =>
+              useBundle({ loader, options: { retryAttempts, delay: 200 } })
+            );
+          } catch (err) {
+            expect(loader).toBeCalledTimes(retryAttempts);
+          }
+        });
+
+        it("throws an error after exausting the retries", async () => {
+          const retryAttempts = 3;
+          const errorMessage = "Oh no, there was an error!";
+          const loader = jest.fn(() => Promise.reject(errorMessage));
+
+          await renderHook(() =>
+            useBundle({ loader, options: { retryAttempts, delay: 200 } })
+          );
+
+          expect(loader).rejects.toThrow(errorMessage);
+        });
+      });
     });
   });
 });

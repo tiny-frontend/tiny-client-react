@@ -3,8 +3,8 @@ import React from "react";
 
 import { withHydrationSuppress } from "./withHydrationSuppress";
 
-const renderWithHydrationSuppress = (loader) => {
-  const Component = withHydrationSuppress(loader);
+const renderWithHydrationSuppress = loader => {
+  const Component = withHydrationSuppress({ loader });
   return render(<Component />);
 };
 
