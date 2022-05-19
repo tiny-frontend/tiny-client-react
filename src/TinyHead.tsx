@@ -10,7 +10,7 @@ const TinyHead: React.FC<Props> = ({ config }) => {
   return (
     <>
       {cssBundle ? <link rel="stylesheet" href={cssBundle} /> : null}
-      <link rel="preload" href={jsBundle} as="script" crossOrigin="anonymous" />
+      <link rel="preload" href={jsBundle} as="script" />
       <script dangerouslySetInnerHTML={{ __html: moduleConfigScript }} />
     </>
   );
