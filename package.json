@@ -1,6 +1,6 @@
 {
   "name": "@tiny-frontend/tiny-client-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -34,7 +34,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "@testing-library/react-hooks": "^7.0.2",
-    "@tiny-frontend/client": "^0.0.3",
+    "@tiny-frontend/client": "^0.0.7",
     "@types/jest": "^27.4.1",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",

@@ -46,7 +46,7 @@ describe("[TinyHead]", () => {
       const expected = "http://other-js-url.js/";
       const { container } = renderTinyHead({ jsBundle: expected });
 
-      const link = container.querySelector("link[as=fetch]") as HTMLLinkElement;
+      const link = container.querySelector("link[as=script]") as HTMLLinkElement;
       const result = link.href;
 
       expect(result).toBe(expected);
