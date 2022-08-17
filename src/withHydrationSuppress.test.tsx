@@ -4,7 +4,7 @@ import React from "react";
 import { withHydrationSuppress } from "./withHydrationSuppress";
 
 const renderWithHydrationSuppress = (loader) => {
-  const Component = withHydrationSuppress(loader);
+  const Component = withHydrationSuppress(loader, "div");
   return render(<Component />);
 };
 
