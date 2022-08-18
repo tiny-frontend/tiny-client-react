@@ -1,4 +1,4 @@
-import React, { ComponentType } from "react";
+import React, { ComponentType, HTMLAttributes } from "react";
 
 import { BundleLoader } from "./types";
 import { useBundle } from "./useBundle";
@@ -16,8 +16,13 @@ import { useBundle } from "./useBundle";
 
 export const withHydrationSuppress = function <T>(
   loader: BundleLoader<ComponentType<T>>,
-  RootElement: keyof JSX.IntrinsicElements
+  id?: HTMLAttributes<T>["id"]
 ) {
+  let element;
+  if (typeof window !== "undefined" && id) {
+    element = document?.getElementById(id)?.children[0].outerHTML;
+  }
+
   // eslint-disable-next-line react/display-name
   return ({ ...props }: T) => {
     const Component = useBundle<ComponentType<T>>({
@@ -27,8 +32,10 @@ export const withHydrationSuppress = function <T>(
     return Component ? (
       <Component {...props} />
     ) : (
-      <RootElement
-        dangerouslySetInnerHTML={{ __html: "" }}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: element ?? "",
+        }}
         suppressHydrationWarning={true}
       />
     );
